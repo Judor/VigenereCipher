@@ -37,14 +37,13 @@ if __name__ == "__main__":
 
     (options, args) = parser.parse_args()
 
-    try:
-        if options.encrypt:
-            text = input("Please type the text to encrypt: ")
-            key = input("Please type your encryption key: ")
-            print('The encrypted text is : ' + encrypt(text, key))
-        elif options.decrypt:
-            text = input("Please type the text to encrypt: ")
-            key = input("Please type your encryption key: ")
-            print('The decrypted text is : ' + decrypt(text, key))
-    except Exception as err:
-        raise Exception('One argument was needed. Type python main.py -h for more help about the usage') from err
+    if options.encrypt:
+        text = input("Please type the text to encrypt: ")
+        key = input("Please type your encryption key: ")
+        print('The encrypted text is : ' + encrypt(text, key))
+    elif options.decrypt:
+        text = input("Please type the text to encrypt: ")
+        key = input("Please type your encryption key: ")
+        print('The decrypted text is : ' + decrypt(text, key))
+    else:
+        raise Exception('One argument was needed. Type python main.py -h for more help about the usage')
